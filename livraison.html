@@ -6,86 +6,69 @@
     <title>Pasta La Vista | Livraison & À emporter</title>
     <style>
         :root {
-            --primary-orange: #D84315;
-            --box-ivory: rgba(255, 252, 245, 0.85);
-            --text-espresso: #4A3525;
-            --white-text: #ffffff;
-            --border-gold: rgba(216, 67, 21, 0.3);
+            --primary-orange: #D84315; --box-ivory: rgba(255, 252, 245, 0.85); 
+            --text-espresso: #4A3525; --white-text: #ffffff; --border-gold: rgba(216, 67, 21, 0.3);
         }
 
-        body {
-            margin: 0; font-family: 'Optima', 'Segoe UI', 'Helvetica Neue', sans-serif;
-            color: var(--text-espresso); line-height: 1.8; letter-spacing: 0.3px;
-            padding-top: 100px; display: flex; flex-direction: column; min-height: 100vh;
-            background-color: transparent;
-        }
+        body { margin: 0; font-family: 'Optima', 'Segoe UI', 'Helvetica Neue', sans-serif; color: var(--text-espresso); line-height: 1.8; letter-spacing: 0.3px; padding-top: 100px; display: flex; flex-direction: column; min-height: 100vh; background-color: transparent; }
+        h2 { font-family: 'Didot', 'Bodoni MT', 'Georgia', serif; color: var(--primary-orange); text-align: center; font-weight: normal; letter-spacing: 1px; font-size: 2.5rem;}
+        
+        .global-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('fond-livraison.png'); background-size: cover; background-position: center; z-index: -1; }
 
-        .global-bg {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            /* L'image de fond globale de la page */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('fond-livraison.png');
-            background-size: cover; background-position: center; z-index: -1;
-        }
-
-        h1, h2 { font-family: 'Didot', 'Bodoni MT', 'Georgia', serif; color: var(--primary-orange); text-align: center; font-weight: normal; letter-spacing: 1px;}
-
-        nav {
-            position: fixed; top: 0; width: 100%; background-color: rgba(255, 252, 245, 0.95);
-            backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.05); z-index: 1000; display: flex; justify-content: center; padding: 1.2rem 0; border-bottom: 1px solid var(--border-gold);
-        }
-
-        nav a { color: var(--text-espresso); text-decoration: none; margin: 0 1.5rem; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; transition: all 0.4s ease; }
-        nav a:hover, nav a.active { color: var(--primary-orange); }
+        /* NAV */
+        nav { position: fixed; top: 0; width: 100%; background-color: rgba(255, 252, 245, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.05); z-index: 1000; display: flex; justify-content: center; align-items: center; padding: 1.2rem 0; border-bottom: 1px solid var(--border-gold); }
+        .desktop-menu a { color: var(--text-espresso); text-decoration: none; margin: 0 1.5rem; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; transition: all 0.4s ease; }
+        .desktop-menu a:hover, .desktop-menu a.active { color: var(--primary-orange); }
+        .mobile-btn { display: none; background: none; border: none; font-size: 1.8rem; color: var(--primary-orange); cursor: pointer; position: absolute; left: 20px; }
+        
+        .sidebar { position: fixed; top: 0; left: -260px; width: 260px; height: 100vh; background-color: rgba(255, 252, 245, 0.98); backdrop-filter: blur(15px); box-shadow: 5px 0 15px rgba(0,0,0,0.1); z-index: 2000; transition: left 0.3s ease; padding-top: 80px; display: flex; flex-direction: column; }
+        .sidebar a { padding: 15px 25px; text-decoration: none; font-size: 1rem; color: var(--text-espresso); text-transform: uppercase; font-weight: bold; border-bottom: 1px solid var(--border-gold); transition: 0.3s; }
+        .sidebar a:hover, .sidebar a.active { color: var(--primary-orange); padding-left: 30px; }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; background: none; border: none; color: var(--primary-orange); cursor: pointer; }
 
         .container { max-width: 950px; margin: 3rem auto; padding: 0 2rem; flex: 1; width: 100%; box-sizing: border-box; }
-
-        .content-box {
-            background-color: var(--box-ivory); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-            border-radius: 2px; padding: 4rem; margin-bottom: 4rem; box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.6); border-top: 3px solid var(--primary-orange);
-        }
-
+        .content-box { background-color: var(--box-ivory); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: 2px; padding: 4rem; margin-bottom: 4rem; box-shadow: 0 15px 35px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.6); border-top: 3px solid var(--primary-orange); }
         .separator { width: 50px; height: 2px; background-color: var(--primary-orange); margin: 0 auto 2.5rem auto; }
 
-        /* Mise en page en deux colonnes pour le texte et l'image */
-        .split-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
+        .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
         .text-content { text-align: justify; }
-
-        /* Style élégant pour la photo de l'employée */
-        .image-content img {
-            width: 100%;
-            border-radius: 4px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            border: 2px solid rgba(255,255,255,0.8);
-            object-fit: cover;
-        }
+        .image-content img { width: 100%; border-radius: 4px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 2px solid rgba(255,255,255,0.8); object-fit: cover; }
 
         footer { background-color: rgba(40, 25, 18, 0.95); color: var(--white-text); text-align: center; padding: 3rem; margin-top: auto; letter-spacing: 1px;}
 
-        /* Responsive pour les téléphones */
         @media (max-width: 768px) {
+            .desktop-menu { display: none; }
+            .mobile-btn { display: block; }
+            nav { justify-content: center; }
+            nav::after { content: "LIVRAISON"; font-family: 'Didot', serif; color: var(--primary-orange); font-size: 1.2rem; letter-spacing: 2px; font-weight: bold; }
+            h2 { font-size: 2rem; }
             .split-layout { grid-template-columns: 1fr; gap: 2rem; }
             .content-box { padding: 2rem; }
         }
     </style>
 </head>
 <body>
-
     <div class="global-bg"></div>
 
     <nav>
+        <button class="mobile-btn" onclick="openNav()">☰</button>
+        <div class="desktop-menu">
+            <a href="index.html">Accueil</a>
+            <a href="menu.html">Le Menu</a>
+            <a href="allergenes.html">Allergènes</a>
+            <a href="evenements.html">Événements</a>
+            <a href="livraison.html" class="active">Livraison</a>
+        </div>
+    </nav>
+
+    <div id="mySidebar" class="sidebar">
+        <button class="close-btn" onclick="closeNav()">×</button>
         <a href="index.html">Accueil</a>
-        <a href="menu.html">Menu</a>
+        <a href="menu.html">Le Menu</a>
         <a href="allergenes.html">Allergènes</a>
         <a href="evenements.html">Événements</a>
         <a href="livraison.html" class="active">Livraison</a>
-    </nav>
+    </div>
 
     <main class="container">
         <section class="content-box">
@@ -97,16 +80,12 @@
                     <p>Envie de déguster nos pâtes fraîches sans bouger de chez vous ou de passer prendre votre repas en un clin d'œil ?</p>
                     <p>Retrouvez-nous en livraison directement sur <strong>Deliveroo</strong> et <strong>Uber Eats</strong>. Que ce soit pour une pause déjeuner au bureau, un dîner tranquille à la maison ou une soirée entre amis, vos plats préférés sont à portée de clic.</p>
                     <p>Vous êtes dans le coin ? Passez nous voir directement pour récupérer votre commande <strong>à emporter</strong>. Notre équipe se fera un plaisir de vous remettre votre repas, préparé minute avec la même passion qu'en salle.</p>
-                    <p style="font-style: italic; font-family: 'Georgia', serif; color: var(--primary-orange); font-size: 1.2rem; margin-top: 2rem; text-align: center;">
-                        Commandez, récupérez… et savourez !
-                    </p>
+                    <p style="font-style: italic; font-family: 'Georgia', serif; color: var(--primary-orange); font-size: 1.2rem; margin-top: 2rem; text-align: center;">Commandez, récupérez… et savourez !</p>
                 </div>
-                
                 <div class="image-content">
                     <img src="photo-emporter.png" alt="Employée Pasta La Vista remettant une commande à emporter">
                 </div>
             </div>
-
         </section>
     </main>
 
@@ -115,5 +94,9 @@
         <p>&copy; 2026 Pasta La Vista. Tous droits réservés.</p>
     </footer>
 
+    <script>
+        function openNav() { document.getElementById("mySidebar").style.left = "0"; }
+        function closeNav() { document.getElementById("mySidebar").style.left = "-260px"; }
+    </script>
 </body>
 </html>

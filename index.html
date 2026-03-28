@@ -7,7 +7,6 @@
     <style>
         :root {
             --primary-orange: #D84315; 
-            --stripe-red: #C62828;
             --box-ivory: rgba(255, 252, 245, 0.85); 
             --text-espresso: #4A3525; 
             --white-text: #ffffff;
@@ -18,7 +17,7 @@
         body {
             margin: 0; font-family: 'Optima', 'Segoe UI', 'Helvetica Neue', sans-serif;
             color: var(--text-espresso); line-height: 1.8; letter-spacing: 0.3px;
-            background-color: transparent; 
+            background-color: transparent; padding-top: 80px;
         }
 
         h1, h2, h3 { font-family: 'Didot', 'Bodoni MT', 'Georgia', serif; color: var(--primary-orange); text-align: center; font-weight: normal; }
@@ -30,36 +29,55 @@
             transform: scale(1.5); transform-origin: center center; will-change: transform;
         }
 
+        /* --- NAVIGATION --- */
         nav {
             position: fixed; top: 0; width: 100%; background-color: rgba(255, 252, 245, 0.95); 
             backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.05); z-index: 1000;
-            display: flex; justify-content: center; padding: 1.2rem 0; border-bottom: 1px solid var(--border-gold);
+            display: flex; justify-content: center; align-items: center; padding: 1.2rem 0; border-bottom: 1px solid var(--border-gold);
         }
 
-        nav a { color: var(--text-espresso); text-decoration: none; margin: 0 1.5rem; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; transition: all 0.4s ease; }
-        nav a:hover, nav a.active { color: var(--primary-orange); }
-
-        #hero { position: relative; height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; text-align: center; }
-        .hero-content { position: relative; z-index: 2; }
-
-        .hero-content h1 { color: var(--pastel-yellow); font-size: 5.5rem; margin: 0; text-shadow: 2px 4px 15px rgba(0,0,0,0.5); letter-spacing: 4px; }
+        .desktop-menu a { color: var(--text-espresso); text-decoration: none; margin: 0 1.5rem; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; transition: all 0.4s ease; }
+        .desktop-menu a:hover, .desktop-menu a.active { color: var(--primary-orange); }
         
-        /* Modification ici : le sous-titre est maintenant en jaune pastel */
+        /* Bouton Menu Mobile */
+        .mobile-btn { display: none; background: none; border: none; font-size: 1.8rem; color: var(--primary-orange); cursor: pointer; position: absolute; left: 20px; }
+
+        /* Menu Latéral Mobile */
+        .sidebar {
+            position: fixed; top: 0; left: -260px; width: 260px; height: 100vh;
+            background-color: rgba(255, 252, 245, 0.98); backdrop-filter: blur(15px);
+            box-shadow: 5px 0 15px rgba(0,0,0,0.1); z-index: 2000; transition: left 0.3s ease;
+            padding-top: 80px; display: flex; flex-direction: column;
+        }
+        .sidebar a { padding: 15px 25px; text-decoration: none; font-size: 1rem; color: var(--text-espresso); text-transform: uppercase; font-weight: bold; border-bottom: 1px solid var(--border-gold); transition: 0.3s; }
+        .sidebar a:hover, .sidebar a.active { color: var(--primary-orange); padding-left: 30px; }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; background: none; border: none; color: var(--primary-orange); cursor: pointer; }
+
+        /* --- CONTENU --- */
+        #hero { position: relative; height: calc(100vh - 80px); width: 100%; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .hero-content { position: relative; z-index: 2; }
+        .hero-content h1 { color: var(--pastel-yellow); font-size: 5.5rem; margin: 0; text-shadow: 2px 4px 15px rgba(0,0,0,0.5); letter-spacing: 4px; }
         .hero-content p { color: var(--pastel-yellow); font-size: 1.6rem; font-style: italic; font-family: 'Georgia', serif; text-shadow: 1px 2px 10px rgba(0,0,0,0.5); }
 
         .container { max-width: 850px; margin: 0 auto; padding: 5rem 2rem; position: relative; z-index: 3; }
-
-        .content-box {
-            background-color: var(--box-ivory); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-            border-radius: 2px; padding: 4rem 4rem; margin-bottom: 4rem; box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
-            border: 1px solid rgba(255,255,255,0.6); border-top: 3px solid var(--primary-orange); text-align: justify;
-        }
-
+        .content-box { background-color: var(--box-ivory); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: 2px; padding: 4rem; margin-bottom: 4rem; box-shadow: 0 15px 35px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.6); border-top: 3px solid var(--primary-orange); text-align: justify; }
         .content-box h2 { font-size: 2.5rem; margin-bottom: 1.5rem; letter-spacing: 1px; }
         .separator { width: 50px; height: 2px; background-color: var(--primary-orange); margin: 0 auto 2.5rem auto; }
         .highlight-text { text-align: center; font-weight: 600; color: var(--primary-orange); font-size: 1.2rem; margin-top: 3rem; font-style: italic; font-family: 'Georgia', serif; }
 
         footer { background-color: rgba(40, 25, 18, 0.95); color: var(--white-text); text-align: center; padding: 3rem; position: relative; z-index: 3; font-size: 0.9rem; letter-spacing: 1px; }
+
+        /* RESPONSIVE MOBILE */
+        @media (max-width: 768px) {
+            .desktop-menu { display: none; }
+            .mobile-btn { display: block; }
+            nav { justify-content: center; }
+            nav::after { content: "PASTA LA VISTA"; font-family: 'Didot', serif; color: var(--primary-orange); font-size: 1.2rem; letter-spacing: 2px; font-weight: bold; }
+            .hero-content h1 { font-size: 3.5rem; }
+            .container { padding: 2rem 1rem; }
+            .content-box { padding: 2rem 1.5rem; }
+            .content-box h2 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
@@ -67,12 +85,24 @@
     <div class="global-bg"></div>
 
     <nav>
+        <button class="mobile-btn" onclick="openNav()">☰</button>
+        <div class="desktop-menu">
+            <a href="index.html" class="active">Accueil</a>
+            <a href="menu.html">Le Menu</a>
+            <a href="allergenes.html">Allergènes</a>
+            <a href="evenements.html">Événements</a>
+            <a href="livraison.html">Livraison</a>
+        </div>
+    </nav>
+
+    <div id="mySidebar" class="sidebar">
+        <button class="close-btn" onclick="closeNav()">×</button>
         <a href="index.html" class="active">Accueil</a>
-        <a href="menu.html">Menu</a>
+        <a href="menu.html">Le Menu</a>
         <a href="allergenes.html">Allergènes</a>
         <a href="evenements.html">Événements</a>
         <a href="livraison.html">Livraison</a>
-    </nav>
+    </div>
 
     <section id="hero">
         <div class="hero-content">
@@ -99,6 +129,7 @@
     </footer>
 
     <script>
+        // Zoom Effect
         window.addEventListener('scroll', () => {
             const scrollPos = window.scrollY;
             const bg = document.querySelector('.global-bg');
@@ -106,6 +137,10 @@
             if (newScale < 1) newScale = 1;
             bg.style.transform = `scale(${newScale})`;
         });
+
+        // Menu Latéral Mobile
+        function openNav() { document.getElementById("mySidebar").style.left = "0"; }
+        function closeNav() { document.getElementById("mySidebar").style.left = "-260px"; }
     </script>
 </body>
 </html>
