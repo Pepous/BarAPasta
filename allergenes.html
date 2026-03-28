@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasta La Vista | Allergènes</title>
+    <style>
+        :root {
+            --primary-orange: #D84315;
+            --box-ivory: rgba(255, 252, 245, 0.85);
+            --text-espresso: #4A3525;
+            --white-text: #ffffff;
+            --border-gold: rgba(216, 67, 21, 0.3);
+        }
+
+        body {
+            margin: 0; font-family: 'Optima', 'Segoe UI', 'Helvetica Neue', sans-serif;
+            color: var(--text-espresso); line-height: 1.8; letter-spacing: 0.3px; padding-top: 100px;
+            display: flex; flex-direction: column; min-height: 100vh;
+            background-color: transparent;
+        }
+
+        .global-bg {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('fond-allergenes.png');
+            background-size: cover; background-position: center; z-index: -1;
+        }
+
+        h1, h2 { font-family: 'Didot', 'Bodoni MT', 'Georgia', serif; color: var(--primary-orange); text-align: center; font-weight: normal; letter-spacing: 1px;}
+
+        nav {
+            position: fixed; top: 0; width: 100%; background-color: rgba(255, 252, 245, 0.95);
+            backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.05); z-index: 1000; display: flex; justify-content: center; padding: 1.2rem 0; border-bottom: 1px solid var(--border-gold);
+        }
+
+        nav a { color: var(--text-espresso); text-decoration: none; margin: 0 1.5rem; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; transition: all 0.4s ease; }
+        nav a:hover, nav a.active { color: var(--primary-orange); }
+
+        .container { max-width: 850px; margin: 3rem auto; padding: 0 2rem; flex: 1; width: 100%; box-sizing: border-box;}
+
+        .content-box {
+            background-color: var(--box-ivory); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border-radius: 2px; padding: 4rem; margin-bottom: 4rem; box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.6); border-top: 3px solid var(--primary-orange); text-align: justify;
+        }
+
+        .separator { width: 50px; height: 2px; background-color: var(--primary-orange); margin: 0 auto 2.5rem auto; }
+
+        footer { background-color: rgba(40, 25, 18, 0.95); color: var(--white-text); text-align: center; padding: 3rem; margin-top: auto; letter-spacing: 1px;}
+    </style>
+</head>
+<body>
+
+    <div class="global-bg"></div>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="menu.html">Menu</a>
+        <a href="allergenes.html" class="active">Allergènes</a>
+        <a href="evenements.html">Événements</a>
+        <a href="livraison.html">Livraison</a>
+    </nav>
+
+    <main class="container">
+        <section class="content-box">
+            <h2>Allergènes & Infos Produits</h2>
+            <div class="separator"></div>
+            <p>Chez Pasta la Vista, nous accordons une grande importance à la qualité, à la transparence et au bien-être de chacun.</p>
+            <p>Nos pâtes fraîches maison sont préparées chaque jour avec des ingrédients simples et soigneusement sélectionnés : farine sans gluten, œufs bio, eau, sel… pour garantir authenticité, goût et accessibilité au plus grand nombre.</p>
+            <p>Nous sommes fiers de proposer une offre gluten free, afin que chacun puisse se faire plaisir sans compromis.</p>
+            <p>Cependant, certains allergènes restent présents dans nos préparations, notamment : <strong>Œufs</strong>.</p>
+            <p>Selon les recettes et les compositions choisies, d’autres allergènes peuvent également être présents dans nos sauces, garnitures et accompagnements (lait, fruits à coque, etc.).</p>
+            <p>Nous invitons toutes les personnes ayant des allergies ou des intolérances alimentaires à se rapprocher de notre équipe. Nous serons ravis de vous informer en détail sur la composition de nos plats et de vous orienter vers les options les plus adaptées.</p>
+            <p style="text-align: center; font-style: italic; font-family: 'Georgia', serif; color: var(--primary-orange); font-size: 1.1rem; margin-top: 3rem;">
+                Votre sécurité et votre plaisir sont notre priorité.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>📍 Nice & Cap 3000</p>
+        <p>&copy; 2026 Pasta La Vista. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>

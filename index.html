@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasta La Vista | Accueil</title>
+    <style>
+        :root {
+            --primary-orange: #D84315; 
+            --stripe-red: #C62828;
+            --box-ivory: rgba(255, 252, 245, 0.85); 
+            --text-espresso: #4A3525; 
+            --white-text: #ffffff;
+            --border-gold: rgba(216, 67, 21, 0.3);
+            --pastel-yellow: #FFF2B2;
+        }
+
+        body {
+            margin: 0; font-family: 'Optima', 'Segoe UI', 'Helvetica Neue', sans-serif;
+            color: var(--text-espresso); line-height: 1.8; letter-spacing: 0.3px;
+            background-color: transparent; 
+        }
+
+        h1, h2, h3 { font-family: 'Didot', 'Bodoni MT', 'Georgia', serif; color: var(--primary-orange); text-align: center; font-weight: normal; }
+
+        .global-bg {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('salle-animee.png');
+            background-size: cover; background-position: center; z-index: -1;
+            transform: scale(1.5); transform-origin: center center; will-change: transform;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; background-color: rgba(255, 252, 245, 0.95); 
+            backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.05); z-index: 1000;
+            display: flex; justify-content: center; padding: 1.2rem 0; border-bottom: 1px solid var(--border-gold);
+        }
+
+        nav a { color: var(--text-espresso); text-decoration: none; margin: 0 1.5rem; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; transition: all 0.4s ease; }
+        nav a:hover, nav a.active { color: var(--primary-orange); }
+
+        #hero { position: relative; height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .hero-content { position: relative; z-index: 2; }
+
+        .hero-content h1 { color: var(--pastel-yellow); font-size: 5.5rem; margin: 0; text-shadow: 2px 4px 15px rgba(0,0,0,0.5); letter-spacing: 4px; }
+        
+        /* Modification ici : le sous-titre est maintenant en jaune pastel */
+        .hero-content p { color: var(--pastel-yellow); font-size: 1.6rem; font-style: italic; font-family: 'Georgia', serif; text-shadow: 1px 2px 10px rgba(0,0,0,0.5); }
+
+        .container { max-width: 850px; margin: 0 auto; padding: 5rem 2rem; position: relative; z-index: 3; }
+
+        .content-box {
+            background-color: var(--box-ivory); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border-radius: 2px; padding: 4rem 4rem; margin-bottom: 4rem; box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+            border: 1px solid rgba(255,255,255,0.6); border-top: 3px solid var(--primary-orange); text-align: justify;
+        }
+
+        .content-box h2 { font-size: 2.5rem; margin-bottom: 1.5rem; letter-spacing: 1px; }
+        .separator { width: 50px; height: 2px; background-color: var(--primary-orange); margin: 0 auto 2.5rem auto; }
+        .highlight-text { text-align: center; font-weight: 600; color: var(--primary-orange); font-size: 1.2rem; margin-top: 3rem; font-style: italic; font-family: 'Georgia', serif; }
+
+        footer { background-color: rgba(40, 25, 18, 0.95); color: var(--white-text); text-align: center; padding: 3rem; position: relative; z-index: 3; font-size: 0.9rem; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+
+    <div class="global-bg"></div>
+
+    <nav>
+        <a href="index.html" class="active">Accueil</a>
+        <a href="menu.html">Menu</a>
+        <a href="allergenes.html">Allergènes</a>
+        <a href="evenements.html">Événements</a>
+        <a href="livraison.html">Livraison</a>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Pasta La Vista</h1>
+            <p>Fait maison. Fait avec passion.</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="content-box">
+            <h2>À propos de nous</h2>
+            <div class="separator"></div>
+            <p>Chez Pasta la Vista, tout a commencé avec une idée simple : réunir deux passions qui nous animent profondément, les pâtes et le fait maison.</p>
+            <p>Nous sommes quatre entrepreneurs niçois, amoureux de bonne cuisine et de moments authentiques. C’est autour de cette envie commune que Pasta la Vista est né : un lieu où la qualité, la générosité et la convivialité sont au cœur de chaque assiette.</p>
+            <p>Ici, nos pâtes sont faites maison, avec amour et passion, chaque jour. Nous mettons un point d’honneur à vous offrir des plats que vous pouvez composer selon vos envies, pour une expérience gourmande qui vous ressemble vraiment.</p>
+            <p>Plus qu’un simple bar à pâtes, Pasta la Vista est une invitation à savourer, partager et se faire plaisir. Et ce n’est que le début… Nous espérons un jour faire voyager notre concept bien au-delà de Nice et de Cap 3000, pour partager notre vision des pâtes maison avec encore plus de monde.</p>
+            <p class="highlight-text">À très bientôt autour d’une bonne assiette !</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>📍 Nice & Cap 3000</p>
+        <p>&copy; 2026 Pasta La Vista. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+            const bg = document.querySelector('.global-bg');
+            let newScale = 1.5 - (scrollPos / 800);
+            if (newScale < 1) newScale = 1;
+            bg.style.transform = `scale(${newScale})`;
+        });
+    </script>
+</body>
+</html>

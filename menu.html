@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasta La Vista | Notre Carte</title>
+    <style>
+        :root {
+            --primary-orange: #D84315; 
+            --box-ivory: rgba(255, 252, 245, 0.85); 
+            --text-espresso: #4A3525; 
+            --white-text: #ffffff;
+            --border-gold: rgba(216, 67, 21, 0.3);
+        }
+
+        body {
+            margin: 0; 
+            font-family: 'Optima', 'Segoe UI', 'Helvetica Neue', sans-serif;
+            color: var(--text-espresso); 
+            line-height: 1.8; 
+            letter-spacing: 0.3px;
+            padding-top: 100px; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh;
+            background-color: transparent;
+        }
+
+        /* RETOUR DU FOND SOMBRE HARMONISÉ */
+        .global-bg {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('fond-menu.png');
+            background-size: cover; background-position: center; z-index: -1;
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; 
+            background-color: rgba(255, 252, 245, 0.95); 
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            z-index: 1000; display: flex; justify-content: center; 
+            padding: 1.2rem 0; border-bottom: 1px solid var(--border-gold);
+        }
+
+        nav a { 
+            color: var(--text-espresso); text-decoration: none; margin: 0 1.2rem; 
+            font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; transition: all 0.4s ease; 
+        }
+        nav a:hover, nav a.active { color: var(--primary-orange); }
+
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 3rem 2rem; 
+            flex: 1; 
+            width: 100%; 
+            box-sizing: border-box; 
+        }
+
+        .content-box {
+            background-color: var(--box-ivory); 
+            backdrop-filter: blur(8px); 
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 2px; 
+            padding: 3rem; 
+            margin-bottom: 3rem; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.6);
+            border-top: 3px solid var(--primary-orange);
+            text-align: center;
+        }
+
+        .menu-images-scroll {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem; 
+        }
+
+        .menu-images-scroll img {
+            width: 100%; 
+            height: auto; 
+            display: block;
+            border-radius: 2px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+            border: 1px solid rgba(0,0,0,0.03); 
+        }
+
+        footer { background-color: rgba(40, 25, 18, 0.95); color: var(--white-text); text-align: center; padding: 3rem; margin-top: auto; letter-spacing: 1px;}
+
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .content-box { padding: 1.5rem 1rem; }
+            nav a { margin: 0 0.5rem; font-size: 0.75rem; }
+            .menu-images-scroll { gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="global-bg"></div>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="menu.html" class="active">Menu</a>
+        <a href="allergenes.html">Allergènes</a>
+        <a href="evenements.html">Événements</a>
+        <a href="livraison.html">Livraison</a>
+    </nav>
+
+    <main class="container">
+        <section class="content-box">
+            
+            <div class="menu-images-scroll">
+                <img src="menu-page-1.jpg" alt="Menu Pasta La Vista - Page 1">
+                <img src="menu-page-2.jpg" alt="Menu Pasta La Vista - Page 2">
+                <img src="menu-page-3.jpg" alt="Menu Pasta La Vista - Page 3">
+                <img src="menu-page-4.jpg" alt="Menu Pasta La Vista - Page 4">
+                <img src="menu-page-5.jpg" alt="Menu Pasta La Vista - Page 5">
+                <img src="menu-page-6.jpg" alt="Menu Pasta La Vista - Page 6">
+            </div>
+            
+        </section>
+    </main>
+
+    <footer>
+        <p>📍 Nice & Cap 3000</p>
+        <p>&copy; 2026 Pasta La Vista. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
